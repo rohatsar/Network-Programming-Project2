@@ -1,111 +1,68 @@
-# Multi-User Chat System (Network Programming - Project 02)
+# Multi-User Chat System (Project 02)
 
-A multi-threaded TCP chat server, console client, optional TCP relay, and WebSocket live monitoring page, written in Python.
+A multi-user TCP chat server I wrote in Python. It comes with a console client, an optional relay, and a WebSocket page for live monitoring.
 
-Features: public broadcast, private messages (`/msg`), nickname validation, rate limiting, persistent file logging, live monitoring, and relay forwarding.
+The chat messages themselves are in Turkish, this README is in English.
 
-> Note: Client and server messages are displayed in Turkish.
+## Requirements
 
-## 1. Requirements
+Python 3 and `websocket-server` for the monitoring part:
 
-- Python 3.x
-- `websocket-server` (used only for the live monitoring WebSocket)
-
-The chat server, client and relay use only the standard library (`socket`, `threading`, `datetime`, `time`).
-
-```bash
+```
 pip install websocket-server
 ```
 
-## 2. Project Files
+Everything else uses the standard library (`socket`, `threading`, `datetime`, `time`).
 
-| File | Description |
-|---|---|
-| `chat_server.py` | TCP chat server. Handles clients with one thread each, routes messages, enforces rate limits, writes logs, and broadcasts live metrics over WebSocket. |
-| `chat_client.py` | Console TCP client. Connects directly to the server or through the relay. |
-| `relay.py` | Optional TCP relay (T07). Accepts client connections, adds a `*` prefix to the nickname, and forwards traffic to and from the main server. |
-| `frontend.html` | Monitoring dashboard. Shows active user count, processed message count and live server logs. |
-| `sohbet_kayitlari.txt` | Log file created by the server (appended on every run). |
+## Files
 
-## 3. How to Run
+- `chat_server.py`: the server. It starts one thread per client, passes messages along, applies the rate limit, writes the log and sends the live numbers over WebSocket.
+- `chat_client.py`: the console client. It connects to the server or to the relay.
+- `relay.py`: the relay for T07. It accepts a client, puts a `*` in front of the nickname and forwards the traffic to the main server.
+- `frontend.html`: the live monitoring page (active users, message count, logs).
+- `sohbet_kayitlari.txt`: the log file written by the server.
 
-### Step 1: Start the server
+## How to run
 
-```bash
-python chat_server.py
-```
+1. Start the server with `python chat_server.py`. Press Enter for the IP, use 1903 for the chat port and 2182 for the WebSocket port. The console prints the `ws://IP:2182` address.
+2. Open `frontend.html` in a browser, type that address and click Bağlan. Open it before the clients connect, because the page only shows events that happen after it connects.
+3. Start a client with `python chat_client.py`, then enter the server IP, port 1903 and a nickname.
+4. Relay (optional): run `python relay.py`, enter the IP and port of the main server, then the relay port (2003). Connect the client to the relay port instead of the server port and you get a name like `*Rohat`.
 
-Press Enter to use the detected local IP, then enter the chat port (default `1903`) and the WebSocket monitoring port (default `2182`). The console prints the WebSocket address, for example `ws://192.168.1.106:2182`.
+## Commands
 
-### Step 2: Open the monitoring page
+- Plain text goes to everyone.
+- `/msg name message` goes only to that user. It does not work with names that contain spaces, because the command is split on spaces.
+- `/liste` shows who is connected.
+- `cikis` leaves the chat.
 
-Open `frontend.html` in a browser, enter the WebSocket address printed by the server, and click **Bağlan**. Open it before the clients connect, because it only shows events that happen after it connects.
+## Rules
 
-### Step 3: Start clients
+- If a nickname is already taken, a number is added to the end (`Rohat`, `Rohat1`, `Rohat2`). Empty nicknames and nicknames starting with `*` are rejected. A `*` is only possible through the relay.
+- Messages longer than 500 characters are rejected.
+- More than 5 messages in 10 seconds mutes the user for 15 seconds. If the user keeps writing while muted, the remaining time is shown.
+- When a client leaves or its connection drops, the server removes it from the list and tells the others.
 
-```bash
-python chat_client.py
-```
+## Protocol
 
-Enter the server IP, port (`1903`) and a nickname.
+Every message is one line ending with `\n`. A client registers with `NICK:name`, and the relay sends `RELAY_NICK:*name`. The server answers with `OK:name` or `HATA:...`. When the user types `cikis`, the client sends `EXIT` to the server. The packet sent to the monitoring page looks like `active|total|log`. Log lines can also contain `|`, so the page only splits on the first two of them.
 
-### Step 4: Start the relay (optional, T07)
+## Log file
 
-```bash
-python relay.py
-```
+Each line looks like `[date time] TYPE: ...`. The types are `SERVER`, `BAGLANTI`, `PUBLIC`, `PRIVATE`, `HATA`, `RATE_LIMIT`, `CIKIS` and `AYRILMA`.
 
-Enter the main server IP and port (`1903`), then the relay port (default `2003`). Connect a client to the **relay port** instead of the server port. The client is registered as a `*`-prefixed nickname (for example `*Rohat`).
+## Tests
 
-## 4. Client Commands
+Screenshots:
 
-| Command | Description |
-|---|---|
-| any text | Public message to all connected users |
-| `/msg <nickname> <message>` | Private message to one user (nicknames cannot contain spaces) |
-| `/liste` | Shows the list of connected users |
-| `cikis` | Disconnects from the server |
+- T01 public chat: `Test1.png`
+- T02 private message and offline recipient error: `Test2.png`
+- T03 nickname conflict and `*` rule: `Test3_1.png`, `Test3_2.png`, `Test3_3.png`
+- T04 exit and connection loss: `Test4.png`
+- T05 rate limit: `Test5.png`
+- T06 log file and live monitoring: `Test6_1.png`, `Test6_2.png`
+- T07 relay: `Test7.png`
 
-## 5. Rules and Behavior
+## Known issue
 
-- **Nicknames:** If a nickname is taken, a numeric suffix is added (`Rohat`, `Rohat1`, `Rohat2`). Empty nicknames and nicknames starting with `*` are rejected on direct connections. Only the relay can register `*`-prefixed nicknames.
-- **Message length:** Messages longer than 500 characters are rejected.
-- **Rate limit:** More than 5 messages within 10 seconds mutes the user for 15 seconds. While muted, the user receives the remaining time on each attempt.
-- **Cleanup:** When a client exits or its connection drops, the server removes it from the user list, announces it to the others and logs it.
-
-## 6. Protocol Summary
-
-All messages are text lines ending with `\n` (UTF-8).
-
-| Message | Direction | Meaning |
-|---|---|---|
-| `NICK:<name>` | client -> server | Register a nickname |
-| `RELAY_NICK:<name>` | relay -> server | Register a nickname through the relay (the `*` prefix is added by the relay) |
-| `OK:<name>` | server -> client | Registration accepted, assigned nickname |
-| `HATA:<text>` | server -> client | Error message |
-| `EXIT` | client -> server | Sent when the user types `cikis` |
-
-Monitoring packets sent over WebSocket have the format `active_users|total_messages|log_line`. Because log lines can also contain `|`, the page splits only on the first two separators.
-
-## 7. Log File
-
-Each line has the format `[YYYY-MM-DD HH:MM:SS] TYPE: details`. Event types:
-`SERVER`, `BAGLANTI`, `PUBLIC`, `PRIVATE`, `HATA`, `RATE_LIMIT`, `CIKIS`, `AYRILMA`.
-
-## 8. Test Scenarios and Screenshots
-
-| Test | Screenshot | What it shows |
-|---|---|---|
-| T01 Public chat | `Test1.png` | Public messages with timestamps seen by all clients |
-| T02 Private chat | `Test2.png` | `/msg` delivered only to the target, third client sees nothing, offline target error |
-| T03 Nicknames | `Test3_1.png`, `Test3_2.png`, `Test3_3.png` | Duplicate names get a numeric suffix; `*` prefixed and empty nicknames are rejected |
-| T04 Disconnect | `Test4.png` | Exit with `cikis` and connection drop, user removed from the list and announced |
-| T05 Rate limit | `Test5.png` | 15 second mute after 5 messages in 10 seconds, with countdown |
-| T06 Logs and live monitoring | `Test6_1.png`, `Test6_2.png` | Live counters and log stream on the monitoring page, matching entries in `sohbet_kayitlari.txt` |
-| T07 Relay (optional) | `Test7.png` | Client connected through the relay gets `*Rohat`, exchanges messages with a direct client, and is cleaned up on exit |
-
-## 9. Known Limitations
-
-- **Exit command:** The client sends `EXIT` when the user types `cikis`, but the server only recognizes `cikis` as an exit command. The `EXIT` line is therefore handled as a normal public message (counted and logged as `PUBLIC`) and no `CIKIS` log entry is written. The user is still removed from the list and announced through the normal disconnect handling (`AYRILMA`).
-- **Nicknames with spaces:** `/msg` splits on spaces, so private messages cannot target nicknames that contain spaces.
-- **Broadcast locking:** The server holds the user-list lock while sending to all clients, so one very slow client can delay others.
+When the user types `cikis`, the client sends `EXIT` to the server, but the server only recognizes the word `cikis` as an exit command. Because of that, `EXIT` is broadcast like a normal message and no `CIKIS` line is written to the log. The user is still removed from the list when the connection closes, and an `AYRILMA` line is written.
