@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Server Canlı İzleme Sayfası</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .kutu { background: white; padding: 15px; border: 1px solid #ccc; margin-bottom: 15px; }
+        #log_alani { width: 100%; height: 350px; font-family: monospace; padding: 10px; box-sizing: border-box; }
+        .sayac { font-size: 18px; font-weight: bold; margin-right: 30px; }
+    </style>
+</head>
+<body>
+
+    <h2>Multi-User Chat - Sunucu İzleme Ekranı (Monitoring)</h2>
+
+    <div class="kutu">
+        <label>WebSocket Adresi: </label>
+        <input type="text" id="ws_adres" value="ws://10.213.41.182:2182" style="width: 250px;">
+        <button onclick="baglan()">Bağlan</button>
+        <span id="durum" style="margin-left: 15px; color: red;">Bağlı Değil</span>
+    </div>
+
+    <div class="kutu">
+        <span class="sayac">Aktif Kullanıcı Sayısı: <span id="aktif_sayisi">0</span></span>
+        <span class="sayac">İşlenen Mesaj Sayısı: <span id="mesaj_sayisi">0</span></span>
+    </div>
+
+    <div class="kutu">
+        <h3>Canlı Sunucu Logları</h3>
+        <textarea id="log_alani" readonly></textarea>
+    </div>
+
+    <script>
+        var ws;
+
+        function baglan() {
+            var adres = document.getElementById("ws_adres").value;
+            ws = new WebSocket(adres);
+
+            ws.onopen = function() {
+                document.getElementById("durum").innerText = "Bağlandı";
+                document.getElementById("durum").style.color = "green";
+                log_ekle("[İZLEME] WebSocket sunucusuna bağlantı sağlandı.");
+            };
+
+            ws.onmessage = function(event) {
+                // Sunucudan gelen 'aktif_sayisi|mesaj_sayisi|log_metni' verisini ayırıyoruz
+                var veri = event.data;
+                var parcalar = veri.split("|");
+                
+                if (parcalar.length >= 3) {
+                    document.getElementById("aktif_sayisi").innerText = parcalar[0];
+                    document.getElementById("mesaj_sayisi").innerText = parcalar[1];
+                    
+                    
+                    var log_yazisi = parcalar.slice(2).join("|");
+                    log_ekle(log_yazisi);
+                }
+            };
+
+            ws.onclose = function() {
+                document.getElementById("durum").innerText = "Bağlantı Kapandı";
+                document.getElementById("durum").style.color = "red";
+                log_ekle("[İZLEME] Sunucu ile bağlantı kesildi.");
+            };
+        }
+
+        function log_ekle(metin) {
+            var alan = document.getElementById("log_alani");
+            alan.value += metin + "\n";
+            alan.scrollTop = alan.scrollHeight; // Otomatik en alta kaydır
+        }
+    </script>
+
+</body>
+</html>

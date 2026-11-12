@@ -1,0 +1,117 @@
+[2026-11-10 16:14:49] SERVER: 10.213.41.182:1903 uzerinde baslatildi.
+[2026-11-10 16:21:38] BAGLANTI: TAHOR (('10.213.41.182', 56669)) sohbete katildi.
+[2026-11-10 16:23:11] BAGLANTI: TAHOR1 (('10.213.41.182', 63806)) sohbete katildi.
+[2026-11-10 16:24:03] PUBLIC | Gonderen: TAHOR1 | Alici: ALL | Mesaj: Selam
+[2026-11-10 16:24:08] PUBLIC | Gonderen: TAHOR1 | Alici: ALL | Mesaj: merhabalar
+[2026-11-10 16:24:12] PUBLIC | Gonderen: TAHOR | Alici: ALL | Mesaj: merhabalar
+[2026-11-10 16:24:28] PUBLIC | Gonderen: TAHOR | Alici: ALL | Mesaj: Bugï¿½n 10 kasï¿½m 2026
+[2026-11-10 16:24:34] PUBLIC | Gonderen: TAHOR1 | Alici: ALL | Mesaj: Saat 16:24
+[2026-11-10 16:29:21] PUBLIC | Gonderen: TAHOR | Alici: ALL | Mesaj: msg  merhabalar
+[2026-11-10 16:30:49] SERVER: 10.213.41.182:1903 uzerinde baslatildi.
+[2026-11-10 16:32:44] BAGLANTI: Tahor1 (('10.213.41.182', 56749)) sohbete katildi.
+[2026-11-10 16:32:54] BAGLANTI: tahor1 (('10.213.41.182', 56751)) sohbete katildi.
+[2026-11-10 16:33:03] PUBLIC | Gonderen: tahor1 | Alici: ALL | Mesaj: EXIT
+[2026-11-10 16:44:19] SERVER: 10.213.41.182:1903 uzerinde baslatildi.
+[2026-11-10 16:44:47] BAGLANTI: Tahor (('10.213.41.182', 59258)) sohbete katildi.
+[2026-11-10 16:44:53] PUBLIC | Gonderen: Tahor | Alici: ALL | Mesaj: merhaba
+[2026-11-10 16:44:56] PUBLIC | Gonderen: Tahor | Alici: ALL | Mesaj: EXIT
+[2026-11-11 12:43:52] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-11 12:44:27] BAGLANTI: Tahor (('192.168.1.106', 57076)) sohbete katildi.
+[2026-11-11 12:44:32] PUBLIC | Gonderen: Tahor | Alici: ALL | Mesaj: EXIT
+[2026-11-11 12:59:56] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-11 13:00:28] BAGLANTI: Tahor (('192.168.1.106', 56437)) sohbete katildi.
+[2026-11-11 13:00:31] PUBLIC | Gonderen: Tahor | Alici: ALL | Mesaj: EXIT
+[2026-11-11 13:00:31] AYRILMA: Tahor baglantisi kapandi, listeden silindi.
+[2026-11-11 13:03:40] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-11 13:03:44] BAGLANTI: Tahor (('192.168.1.106', 57120)) sohbete katildi.
+[2026-11-11 13:03:45] PUBLIC | Gonderen: Tahor | Alici: ALL | Mesaj: a
+[2026-11-11 13:03:46] PUBLIC | Gonderen: Tahor | Alici: ALL | Mesaj: a
+[2026-11-11 13:03:46] PUBLIC | Gonderen: Tahor | Alici: ALL | Mesaj: a
+[2026-11-11 13:03:46] PUBLIC | Gonderen: Tahor | Alici: ALL | Mesaj: a
+[2026-11-11 13:03:47] PUBLIC | Gonderen: Tahor | Alici: ALL | Mesaj: a
+[2026-11-11 13:03:47] RATE_LIMIT: Tahor hiz sinirini astigi icin 15 saniye susturuldu.
+[2026-11-12 11:53:04] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-12 11:53:35] BAGLANTI: Rohat Sarýgül (('192.168.1.106', 57887)) sohbete katildi.
+[2026-11-12 11:55:27] BAGLANTI: Ali (('192.168.1.106', 55566)) sohbete katildi.
+[2026-11-12 11:55:33] PUBLIC | Gonderen: Ali | Alici: ALL | Mesaj: Selam Rohat
+[2026-11-12 11:55:39] PUBLIC | Gonderen: Rohat Sarýgül | Alici: ALL | Mesaj: Selam ali nasýlsýn?
+[2026-11-12 11:55:51] PUBLIC | Gonderen: Ali | Alici: ALL | Mesaj: Ýyiyim rohat sen nasýlsýn?
+[2026-11-12 11:56:02] PUBLIC | Gonderen: Rohat Sarýgül | Alici: ALL | Mesaj: bende iyiyim
+[2026-11-12 12:01:00] PUBLIC | Gonderen: Ali | Alici: ALL | Mesaj: msg/ Veli iyi misin
+[2026-11-12 12:03:11] HATA: Ali, bagli olmayan 'Veli' kullanicisina ozel mesaj denedi.
+[2026-11-12 12:04:20] BAGLANTI: Veli (('192.168.1.106', 58337)) sohbete katildi.
+[2026-11-12 12:04:35] PRIVATE | Gonderen: Ali | Alici: Veli | Mesaj: iyi misin?
+[2026-11-12 12:06:52] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-12 12:07:13] BAGLANTI: Rohat (('192.168.1.106', 64611)) sohbete katildi.
+[2026-11-12 12:07:29] BAGLANTI: Rohati (('192.168.1.106', 56068)) sohbete katildi.
+[2026-11-12 12:07:39] AYRILMA: Rohati baglantisi kapandi, listeden silindi.
+[2026-11-12 12:08:16] BAGLANTI: Rohat1 (('192.168.1.106', 61336)) sohbete katildi.
+[2026-11-12 12:12:43] BAGLANTI: Rohat2 (('192.168.1.106', 51181)) sohbete katildi.
+[2026-11-12 12:13:19] AYRILMA: Rohat2 baglantisi kapandi, listeden silindi.
+[2026-11-12 12:13:20] AYRILMA: Rohat1 baglantisi kapandi, listeden silindi.
+[2026-11-12 12:13:22] AYRILMA: Rohat baglantisi kapandi, listeden silindi.
+[2026-11-12 12:18:22] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-12 12:18:42] BAGLANTI: Rohat (('192.168.1.106', 56388)) sohbete katildi.
+[2026-11-12 12:18:59] BAGLANTI: Rohat1 (('192.168.1.106', 56401)) sohbete katildi.
+[2026-11-12 12:19:50] BAGLANTI: Rohat2 (('192.168.1.106', 50018)) sohbete katildi.
+[2026-11-12 12:21:51] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: EXIT
+[2026-11-12 12:21:52] AYRILMA: Rohat1 baglantisi kapandi, listeden silindi.
+[2026-11-12 12:22:34] AYRILMA: Rohat2 baglantisi kapandi, listeden silindi.
+[2026-11-12 12:25:19] AYRILMA: Rohat baglantisi kapandi, listeden silindi.
+[2026-11-12 12:25:39] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-12 12:26:01] BAGLANTI: Rohat (('192.168.1.106', 60185)) sohbete katildi.
+[2026-11-12 12:26:15] BAGLANTI: Rohat1 (('192.168.1.106', 60198)) sohbete katildi.
+[2026-11-12 12:27:15] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: 1
+[2026-11-12 12:27:16] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: 2
+[2026-11-12 12:27:16] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: 3
+[2026-11-12 12:27:17] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: 4
+[2026-11-12 12:27:17] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: 5
+[2026-11-12 12:27:18] RATE_LIMIT: Rohat1 hiz sinirini astigi icin 15 saniye susturuldu.
+[2026-11-12 12:27:35] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: 7
+[2026-11-12 12:27:47] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: 8
+[2026-11-12 12:27:48] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: 9
+[2026-11-12 12:27:49] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: 10
+[2026-11-12 12:27:55] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: 11
+[2026-11-12 12:27:56] PUBLIC | Gonderen: Rohat1 | Alici: ALL | Mesaj: 12
+[2026-11-12 12:27:57] RATE_LIMIT: Rohat1 hiz sinirini astigi icin 15 saniye susturuldu.
+[2026-11-12 12:30:54] AYRILMA: Rohat1 baglantisi kapandi, listeden silindi.
+[2026-11-12 12:30:57] AYRILMA: Rohat baglantisi kapandi, listeden silindi.
+[2026-11-12 12:31:38] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-12 12:31:57] BAGLANTI: Rohat (('192.168.1.106', 51836)) sohbete katildi.
+[2026-11-12 12:32:11] BAGLANTI: Rohat1 (('192.168.1.106', 51849)) sohbete katildi.
+[2026-11-12 13:52:55] AYRILMA: Rohat1 baglantisi kapandi, listeden silindi.
+[2026-11-12 13:52:56] AYRILMA: Rohat baglantisi kapandi, listeden silindi.
+[2026-11-12 13:55:22] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-12 14:04:38] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-12 14:06:06] BAGLANTI: Rohat Sarýgül (('192.168.1.106', 50265)) sohbete katildi.
+[2026-11-12 14:06:48] BAGLANTI: Ali (('192.168.1.106', 50275)) sohbete katildi.
+[2026-11-12 14:07:03] PUBLIC | Gonderen: Ali | Alici: ALL | Mesaj: merhaba
+[2026-11-12 14:07:13] PUBLIC | Gonderen: Rohat Sarýgül | Alici: ALL | Mesaj: merhaba ali ödevi yaptýn mý?
+[2026-11-12 14:07:25] PUBLIC | Gonderen: Ali | Alici: ALL | Mesaj: daha bitmedi ama az kaldý bitecek
+[2026-11-12 14:07:33] PUBLIC | Gonderen: Ali | Alici: ALL | Mesaj: sen ne yaptýn
+[2026-11-12 14:07:57] PUBLIC | Gonderen: Rohat Sarýgül | Alici: ALL | Mesaj: benimki nerdeyse bitti az sonra bitirecem.
+[2026-11-12 14:08:34] HATA: Ali, bagli olmayan 'Beþiktaþ' kullanicisina ozel mesaj denedi.
+[2026-11-12 14:09:04] HATA: Ali, bagli olmayan 'Rohat' kullanicisina ozel mesaj denedi.
+[2026-11-12 14:09:15] HATA: Ali, bagli olmayan 'Rohat' kullanicisina ozel mesaj denedi.
+[2026-11-12 14:10:42] AYRILMA: Ali baglantisi kapandi, listeden silindi.
+[2026-11-12 14:10:42] AYRILMA: Rohat Sarýgül baglantisi kapandi, listeden silindi.
+[2026-11-12 14:10:59] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-12 14:12:26] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-12 14:13:00] BAGLANTI: Rohat (('192.168.1.106', 60562)) sohbete katildi.
+[2026-11-12 14:13:33] BAGLANTI: Meleksu (('192.168.1.106', 60572)) sohbete katildi.
+[2026-11-12 14:14:28] PUBLIC | Gonderen: Rohat | Alici: ALL | Mesaj: merhaba
+[2026-11-12 14:14:51] PRIVATE | Gonderen: Rohat | Alici: Meleksu | Mesaj: selam
+[2026-11-12 14:15:10] HATA: Rohat, bagli olmayan 'Ali' kullanicisina ozel mesaj denedi.
+[2026-11-12 14:15:22] PUBLIC | Gonderen: Rohat | Alici: ALL | Mesaj: 1
+[2026-11-12 14:15:24] PUBLIC | Gonderen: Rohat | Alici: ALL | Mesaj: 2
+[2026-11-12 14:15:24] PUBLIC | Gonderen: Rohat | Alici: ALL | Mesaj: 3
+[2026-11-12 14:15:25] PUBLIC | Gonderen: Rohat | Alici: ALL | Mesaj: 4
+[2026-11-12 14:15:26] PUBLIC | Gonderen: Rohat | Alici: ALL | Mesaj: 5
+[2026-11-12 14:15:26] RATE_LIMIT: Rohat hiz sinirini astigi icin 15 saniye susturuldu.
+[2026-11-12 14:15:39] PUBLIC | Gonderen: Meleksu | Alici: ALL | Mesaj: EXIT
+[2026-11-12 14:15:39] AYRILMA: Meleksu baglantisi kapandi, listeden silindi.
+[2026-11-12 15:13:05] AYRILMA: Rohat baglantisi kapandi, listeden silindi.
+[2026-11-12 15:14:11] SERVER: 192.168.1.106:1903 uzerinde baslatildi.
+[2026-11-12 15:16:58] BAGLANTI: *Rohat (('192.168.1.106', 60156)) sohbete katildi.
+[2026-11-12 15:17:58] PUBLIC | Gonderen: *Rohat | Alici: ALL | Mesaj: EXIT
+[2026-11-12 15:17:58] AYRILMA: *Rohat baglantisi kapandi, listeden silindi.
