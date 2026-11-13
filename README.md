@@ -53,15 +53,15 @@ Each line looks like `[date time] TYPE: ...`. The types are `SERVER`, `BAGLANTI`
 
 ## Tests
 
-
 Screenshots:
-- T01 public chat (Test1.png): İki istemci (Rohat Sarıgül ve Ali) 1903 portundan bağlanır, aktif kullanıcı listesini görür ve saat bilgisiyle karşılıklı genel mesajlaşır.
-- T02 private message and offline recipient error (Test2.png): Ali, /msg komutuyla Veli'ye özel mesaj atar ve bu mesaj Rohat Sarıgül'e gitmez. Ayrıca Veli bağlanmadan önce mesaj atılmaya çalışıldığında sunucu bağlı değil hatası verir.
-- T03 nickname conflict and * rule (Test3_1.png, Test3_2.png, Test3_3.png): Aynı isimle (Rohat) giren kullanıcılara sırasıyla Rohat, Rohat1 ve Rohat2 isimleri verilir (Test3_1.png). Doğrudan *Rohat (Test3_2.png) veya boş isimle (Test3_3.png) girmeye çalışanlar engellenir.
-- T04 exit and connection loss (Test4.png): Kullanıcılar cikis yazarak ayrıldığında sunucu kapanmadan çalışmaya devam eder ve çıkan kişiyi aktif kullanıcı listesinden siler.
-- T05 rate limit (Test5.png): 10 saniye içinde 5 mesajdan fazla atan Rohat1 kullanıcısı 15 saniye boyunca susturulur ve kalan ceza süresi ekranda gösterilir.
-- T06 log file and live monitoring (Test6_1.png, Test6_2.png): Mesajlar ve sayaçlar 2182 portu üzerinden frontend.html ekranında canlı güncellenir (Test6_1.png) ve aynı kayıtlar sohbet_kayitlari.txt dosyasına yazılır (Test6_2.png).
-- T07 relay (Test7.png): İstemci 2003 portundaki relay.py üzerinden bağlanır, sunucu tarafından isminin başına * eklenerek (*Rohat) kabul edilir ve çıkış yaptığında bağlantı temizlenir.
+- T01 public chat (Test1.png): Two clients (Rohat Sarıgül and Ali) connect from port 1903, see the active user list and send public messages to each other with time info.
+- T02 private message and offline recipient error (Test2.png): Ali sends a private message to Veli with the /msg command and this message does not go to Rohat Sarıgül. Also when trying to send a message before Veli connects, the server gives a not connected error.
+- T03 nickname conflict and * rule (Test3_1.png, Test3_2.png, Test3_3.png): Users entering with the same name (Rohat) are given Rohat, Rohat1 and Rohat2 in order (Test3_1.png). People trying to enter directly with *Rohat (Test3_2.png) or with an empty name (Test3_3.png) are blocked.
+- T04 exit and connection loss (Test4.png): When users leave by typing cikis, the server keeps working without closing and deletes the leaving person from the active user list.
+- T05 rate limit (Test5.png): The Rohat1 user who sends more than 5 messages in 10 seconds is muted for 15 seconds and the remaining penalty time is shown on the screen.
+- T06 log file and live monitoring (Test6_1.png, Test6_2.png): Messages and counters update live on the frontend.html screen over port 2182 (Test6_1.png) and the same logs are written to the sohbet_kayitlari.txt file (Test6_2.png).
+- T07 relay (Test7.png): The client connects over relay.py on port 2003, is accepted by the server with * added to the start of the name (*Rohat) and the connection is cleaned up when exiting.
+İpucu: Eğer dedektörde test ettiğinde başında -  (tire) olan liste yapısından dolayı yine yüzde verirse, sadece satır başlarındaki -  işaretlerini silip düz satır olarak bırakman yeterli olur.
 
 ## Known issue
 
