@@ -55,26 +55,26 @@ Each line looks like `[date time] TYPE: ...`. The types are `SERVER`, `BAGLANTI`
 
 Screenshots:
 
-T01 public chat -> Test1.png
-In the first test I opened two client terminals for Rohat Sarıgül and Ali on port 1903. Both of them connected fine, we can see the online user list and the messages going back and forth with time info.
+T01 public chat : Test1.png
+Rohat Sarıgül and Ali connected from 2 terminals to port 1903. Both of them see active user list and talk in public chat with time.
 
-T02 private message and offline recipient error -> Test2.png
-Here Ali tries to send a private message to Veli before Veli joins the chat so the server gives not connected error. After Veli connects, Ali writes /msg Veli iyi misin? and only Veli gets this message, Rohat Sarıgül does not see anything on his screen.
+T02 private message and offline recipient error : Test2.png
+First Ali write /msg to Veli before Veli is online so server give error. Then Veli join and Ali send private message again, only Veli see it and Rohat Sarıgül dont see this message.
 
-T03 nickname conflict and * rule -> Test3_1.png, Test3_2.png, Test3_3.png
-In Test3_1 I entered the same name Rohat from different terminals and the server changed them to Rohat1 and Rohat2 automatically. In Test3_2 I tried to login as *Rohat directly and in Test3_3 I left the name empty, both gave error and closed as expected.
+T03 nickname conflict and * rule : Test3_1.png, Test3_2.png, Test3_3.png
+In Test3_1 3 clients enter same name Rohat and server make them Rohat, Rohat1, Rohat2. In Test3_2 client try to take *Rohat and in Test3_3 name is empty so server give error for both.
 
-T04 exit and connection loss -> Test4.png
-When a user writes cikis or closes the terminal window, the server does not crash. It deletes that user from the active list and informs the other connected clients.
+T04 exit and connection loss : Test4.png
+Client write cikis to leave chat. Server still works normal and delete left user from active list.
 
-T05 rate limit -> Test5.png
-To test spam protection, Rohat1 sent more than 5 messages in 10 seconds. The server muted Rohat1 for 15 seconds and showed how many seconds left when trying to write again.
+T05 rate limit : Test5.png
+Rohat1 send more than 5 message in 10 sec. Server mute him for 15 sec and show how many seconds left on screen.
 
-T06 log file and live monitoring -> Test6_1.png, Test6_2.png
-Test6_1 shows the browser screen (frontend.html) connected to websocket port 2182 where active user count and message count go up live by 1 for each message. Test6_2 shows the sohbet_kayitlari.txt file where all logs are written.
+T06 log file and live monitoring : Test6_1.png, Test6_2.png
+In Test6_1 frontend.html connect to port 2182 and user count + message count increase 1 for each message without refresh. Test6_2 is sohbet_kayitlari.txt log file.
 
-T07 relay -> Test7.png
-I started relay.py on port 2003 and connected with a client. The relay added * to the beginning of the name so the user joined as *Rohat, and when I typed cikis the connection closed properly.
+T07 relay : Test7.png
+Client connect to relay.py on port 2003. Relay put * before name so user join as *Rohat and then exit with cikis.
 
 
 ## Known issue
