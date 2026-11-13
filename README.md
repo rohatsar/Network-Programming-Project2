@@ -55,27 +55,13 @@ Each line looks like `[date time] TYPE: ...`. The types are `SERVER`, `BAGLANTI`
 
 Screenshots:
 
-T01 public chat : Test1.png
-Rohat Sarıgül and Ali connected from 2 terminals to port 1903. Both of them see active user list and talk in public chat with time.
-
-T02 private message and offline recipient error : Test2.png
-First Ali write /msg to Veli before Veli is online so server give error. Then Veli join and Ali send private message again, only Veli see it and Rohat Sarıgül dont see this message.
-
-T03 nickname conflict and * rule : Test3_1.png, Test3_2.png, Test3_3.png
-In Test3_1 3 clients enter same name Rohat and server make them Rohat, Rohat1, Rohat2. In Test3_2 client try to take *Rohat and in Test3_3 name is empty so server give error for both.
-
-T04 exit and connection loss : Test4.png
-Client write cikis to leave chat. Server still works normal and delete left user from active list.
-
-T05 rate limit : Test5.png
-Rohat1 send more than 5 message in 10 sec. Server mute him for 15 sec and show how many seconds left on screen.
-
-T06 log file and live monitoring : Test6_1.png, Test6_2.png
-In Test6_1 frontend.html connect to port 2182 and user count + message count increase 1 for each message without refresh. Test6_2 is sohbet_kayitlari.txt log file.
-
-T07 relay : Test7.png
-Client connect to relay.py on port 2003. Relay put * before name so user join as *Rohat and then exit with cikis.
-
+- Test1.png (T01): Normal chat between Rohat Sarıgül and Ali on 1903, clock and user list working.
+- Test2.png (T02): Ali DMing Veli with /msg. First it errors out since Veli isn't there yet, then Veli joins and gets it while Rohat Sarıgül sees nothing.
+- Test3_1.png, Test3_2.png, Test3_3.png (T03): Picking the same name gives Rohat1 and Rohat2. The other two pics are for *Rohat and blank name errors.
+- Test4.png (T04): Leaving with cikis and checking /liste to see if the server still runs fine.
+- Test5.png (T05): Spamming over 5 texts in 10s, Rohat1 gets a 15s mute.
+- Test6_1.png & Test6_2.png (T06): Browser page on 2182 counting messages live, plus the txt log.
+- Test7.png (T07): Joining over 2003 relay to get the *Rohat tag and quitting.
 
 ## Known issue
 
