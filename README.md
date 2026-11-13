@@ -61,7 +61,7 @@ Screenshots:
 - T05 rate limit (Test5.png): The Rohat1 user who sends more than 5 messages in 10 seconds is muted for 15 seconds and the remaining penalty time is shown on the screen.
 - T06 log file and live monitoring (Test6_1.png, Test6_2.png): Messages and counters update live on the frontend.html screen over port 2182 (Test6_1.png) and the same logs are written to the sohbet_kayitlari.txt file (Test6_2.png).
 - T07 relay (Test7.png): The client connects over relay.py on port 2003, is accepted by the server with * added to the start of the name (*Rohat) and the connection is cleaned up when exiting.
-İpucu: Eğer dedektörde test ettiğinde başında -  (tire) olan liste yapısından dolayı yine yüzde verirse, sadece satır başlarındaki -  işaretlerini silip düz satır olarak bırakman yeterli olur.
+
 
 ## Known issue
 
