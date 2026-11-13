@@ -53,15 +53,15 @@ Each line looks like `[date time] TYPE: ...`. The types are `SERVER`, `BAGLANTI`
 
 ## Tests
 
-Screenshots:
 
-- T01 public chat: `Test1.png`
-- T02 private message and offline recipient error: `Test2.png`
-- T03 nickname conflict and `*` rule: `Test3_1.png`, `Test3_2.png`, `Test3_3.png`
-- T04 exit and connection loss: `Test4.png`
-- T05 rate limit: `Test5.png`
-- T06 log file and live monitoring: `Test6_1.png`, `Test6_2.png`
-- T07 relay: `Test7.png`
+Screenshots:
+- T01 public chat (Test1.png): İki istemci (Rohat Sarıgül ve Ali) 1903 portundan bağlanır, aktif kullanıcı listesini görür ve saat bilgisiyle karşılıklı genel mesajlaşır.
+- T02 private message and offline recipient error (Test2.png): Ali, /msg komutuyla Veli'ye özel mesaj atar ve bu mesaj Rohat Sarıgül'e gitmez. Ayrıca Veli bağlanmadan önce mesaj atılmaya çalışıldığında sunucu bağlı değil hatası verir.
+- T03 nickname conflict and * rule (Test3_1.png, Test3_2.png, Test3_3.png): Aynı isimle (Rohat) giren kullanıcılara sırasıyla Rohat, Rohat1 ve Rohat2 isimleri verilir (Test3_1.png). Doğrudan *Rohat (Test3_2.png) veya boş isimle (Test3_3.png) girmeye çalışanlar engellenir.
+- T04 exit and connection loss (Test4.png): Kullanıcılar cikis yazarak ayrıldığında sunucu kapanmadan çalışmaya devam eder ve çıkan kişiyi aktif kullanıcı listesinden siler.
+- T05 rate limit (Test5.png): 10 saniye içinde 5 mesajdan fazla atan Rohat1 kullanıcısı 15 saniye boyunca susturulur ve kalan ceza süresi ekranda gösterilir.
+- T06 log file and live monitoring (Test6_1.png, Test6_2.png): Mesajlar ve sayaçlar 2182 portu üzerinden frontend.html ekranında canlı güncellenir (Test6_1.png) ve aynı kayıtlar sohbet_kayitlari.txt dosyasına yazılır (Test6_2.png).
+- T07 relay (Test7.png): İstemci 2003 portundaki relay.py üzerinden bağlanır, sunucu tarafından isminin başına * eklenerek (*Rohat) kabul edilir ve çıkış yaptığında bağlantı temizlenir.
 
 ## Known issue
 
