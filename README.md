@@ -54,13 +54,27 @@ Each line looks like `[date time] TYPE: ...`. The types are `SERVER`, `BAGLANTI`
 ## Tests
 
 Screenshots:
-- T01 public chat (Test1.png): Two clients (Rohat Sarıgül and Ali) connect from port 1903, see the active user list and send public messages to each other with time info.
-- T02 private message and offline recipient error (Test2.png): Ali sends a private message to Veli with the /msg command and this message does not go to Rohat Sarıgül. Also when trying to send a message before Veli connects, the server gives a not connected error.
-- T03 nickname conflict and * rule (Test3_1.png, Test3_2.png, Test3_3.png): Users entering with the same name (Rohat) are given Rohat, Rohat1 and Rohat2 in order (Test3_1.png). People trying to enter directly with *Rohat (Test3_2.png) or with an empty name (Test3_3.png) are blocked.
-- T04 exit and connection loss (Test4.png): When users leave by typing cikis, the server keeps working without closing and deletes the leaving person from the active user list.
-- T05 rate limit (Test5.png): The Rohat1 user who sends more than 5 messages in 10 seconds is muted for 15 seconds and the remaining penalty time is shown on the screen.
-- T06 log file and live monitoring (Test6_1.png, Test6_2.png): Messages and counters update live on the frontend.html screen over port 2182 (Test6_1.png) and the same logs are written to the sohbet_kayitlari.txt file (Test6_2.png).
-- T07 relay (Test7.png): The client connects over relay.py on port 2003, is accepted by the server with * added to the start of the name (*Rohat) and the connection is cleaned up when exiting.
+
+T01 public chat -> Test1.png
+In the first test I opened two client terminals for Rohat Sarıgül and Ali on port 1903. Both of them connected fine, we can see the online user list and the messages going back and forth with time info.
+
+T02 private message and offline recipient error -> Test2.png
+Here Ali tries to send a private message to Veli before Veli joins the chat so the server gives not connected error. After Veli connects, Ali writes /msg Veli iyi misin? and only Veli gets this message, Rohat Sarıgül does not see anything on his screen.
+
+T03 nickname conflict and * rule -> Test3_1.png, Test3_2.png, Test3_3.png
+In Test3_1 I entered the same name Rohat from different terminals and the server changed them to Rohat1 and Rohat2 automatically. In Test3_2 I tried to login as *Rohat directly and in Test3_3 I left the name empty, both gave error and closed as expected.
+
+T04 exit and connection loss -> Test4.png
+When a user writes cikis or closes the terminal window, the server does not crash. It deletes that user from the active list and informs the other connected clients.
+
+T05 rate limit -> Test5.png
+To test spam protection, Rohat1 sent more than 5 messages in 10 seconds. The server muted Rohat1 for 15 seconds and showed how many seconds left when trying to write again.
+
+T06 log file and live monitoring -> Test6_1.png, Test6_2.png
+Test6_1 shows the browser screen (frontend.html) connected to websocket port 2182 where active user count and message count go up live by 1 for each message. Test6_2 shows the sohbet_kayitlari.txt file where all logs are written.
+
+T07 relay -> Test7.png
+I started relay.py on port 2003 and connected with a client. The relay added * to the beginning of the name so the user joined as *Rohat, and when I typed cikis the connection closed properly.
 
 
 ## Known issue
